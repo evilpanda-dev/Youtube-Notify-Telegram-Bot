@@ -28,4 +28,4 @@ ENV TELEGRAM_GROUP_CHAT_ID=${TELEGRAM_GROUP_CHAT_ID}"
 EXPOSE 8089
 
 # Start the Flask app
-CMD ["python", "app.py"]
+CMD ["python", "callback_server.py"]

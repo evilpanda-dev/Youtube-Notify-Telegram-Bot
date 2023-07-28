@@ -1,12 +1,11 @@
 import os
-
-import telebot
-from flask import Flask, request, jsonify
-import json
-from flask_cors import CORS
 import xml.etree.ElementTree as ET
+
 import pymongo
+import telebot
 from dotenv import load_dotenv
+from flask import Flask, request, jsonify
+from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app, resources={r"/callback": {"origins": "*"}})
@@ -93,4 +92,4 @@ def callback():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=os.environ.get('PORT'))
+    app.run(host='0.0.0.0', port=os.environ.get('PORT'), ssl_context='adhoc')

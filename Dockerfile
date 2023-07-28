@@ -18,15 +18,15 @@ COPY . .
 ARG MONGO_CONNECTION="MONGO_CONNECTION"
 ARG TELEGRAM_BOT_TOKEN="YOUR_TELEGRAM_BOT_TOKEN"
 ARG TELEGRAM_GROUP_CHAT_ID="YOUR_TELEGRAM_GROUP_CHAT_ID"
-ARG PORT="PORT"
+#ARG PORT="PORT"
 # Set environment variables with the build argument values
 ENV MONGO_CONNECTION=${MONGO_CONNECTION}
 ENV TELEGRAM_BOT_TOKEN=${TELEGRAM_BOT_TOKEN}
 ENV TELEGRAM_GROUP_CHAT_ID=${TELEGRAM_GROUP_CHAT_ID}
-ENV PORT=${PORT}
+#ENV PORT=${PORT}
 
 # Expose the port that the Flask app is running on
-EXPOSE ${PORT}
-
-# Start the Flask app
-CMD ["python", "callback_server.py"]
+#EXPOSE ${PORT}
+#
+## Start the Flask app
+#CMD ["python", "callback_server.py"]

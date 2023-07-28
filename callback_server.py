@@ -67,12 +67,12 @@ def callback():
                 # Send a message about the scheduled livestream
                 live_url = get_video_url(video_id)
                 bot.send_message(chat_id=os.environ.get("TELEGRAM_GROUP_CHAT_ID"),
-                                 text=f"A new livestream is scheduled on the YouTube channel!\n{live_url}")
+                                 text=f"Va astept la un nou LIVE!\n{live_url}")
             else:
                 # Send a message about the new video
                 video_url = get_video_url(video_id)
                 bot.send_message(chat_id=os.environ.get("TELEGRAM_GROUP_CHAT_ID"),
-                                 text=f"A new video is uploaded on the YouTube channel!\n{video_url}")
+                                 text=f"Videoclip nou pe canal!\n{video_url}")
 
             # Return the event data as JSON response
             response_data = {
@@ -93,4 +93,4 @@ def callback():
 
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=10000)
+    app.run(host='0.0.0.0', port=os.environ.get('PORT'))

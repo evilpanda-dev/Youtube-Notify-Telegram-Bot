@@ -20,13 +20,16 @@ mongo_client = pymongo.MongoClient(mongo_connection_string)
 db = mongo_client["ytNotify"]
 collection = db["Youtube Notifications"]
 
+
 # Function to get the video URL from the video ID
 def get_video_url(video_id):
     return f"https://www.youtube.com/watch?v={video_id}"
 
+
 # Function to check if 'live' is in the video_title
 def is_live(video_title):
     return True if 'live' in video_title.lower() else False
+
 
 @app.route('/callback', methods=['POST', 'GET'])
 def callback():
@@ -86,12 +89,10 @@ def callback():
 
     elif request.method == 'GET' and request.args.get('hub.challenge'):
         # Process GET request with 'hub.challenge'
-        return 'Successfully subscribed!', 200
+        return request.args.get('hub.challenge')
 
     return 'Invalid request.'
 
 
 if __name__ == '__main__':
-    app.run()
-else:
-    gunicorn_app = app
+    app.run(host='0.0.0.0', port=os.environ.get('PORT'))
